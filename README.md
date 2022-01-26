@@ -25,7 +25,7 @@ pybullet
 
 ## Train
 ```bash
-python main.py
+python src/main.py
 ```
 
 ## Citation
