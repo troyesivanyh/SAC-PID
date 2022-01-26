@@ -1,10 +1,10 @@
 # SAC-PID
 
-##Note
+## Note
 Considering that gazebo and ros environments are difficult to configure, I rewrote a version in pybullet.
 
 
-##Paper
+## Paper
 This is the offical implementation of the paper:
 [A self-adaptive SAC-PID control approach based on reinforcement learning for mobile robots](https://onlinelibrary.wiley.com/doi/abs/10.1002/rnc.5662). 
 
@@ -12,23 +12,23 @@ This paper was published in International Journal of Robust and Nonlinear Contro
 
 
 
-##Video
+## Video
 - [Youtube version](https://youtu.be/GaWI_T6etUM)
 - [bilibili version](https://www.bilibili.com/video/BV11q4y1c7Vn?from=search)
 
-##Requriments
+## Requriments
 python >=3.6
 
 torch>=1.0
 
 pybullet
 
-##Train
+## Train
 ```bash
 python main.py
 ```
 
-##Citation
+## Citation
 If you find our work useful for your research, please consider citing the paper:
 ``` 
 @article{https://doi.org/10.1002/rnc.5662,
