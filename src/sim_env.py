@@ -46,7 +46,7 @@ class Bullet():
         cubeStartPos = [self.car.init_pos[0], self.car.init_pos[1], 0]
         # init orientation
         cubeStartOrientation = p.getQuaternionFromEuler([0, 0, self.car.init_yaw-math.pi/2])
-        self.robotId= p.loadURDF("mecanum_simple.urdf", cubeStartPos, cubeStartOrientation,flags=p.URDF_USE_INERTIA_FROM_FILE)
+        self.robotId= p.loadURDF("agent_model/mecanum_simple.urdf", cubeStartPos, cubeStartOrientation,flags=p.URDF_USE_INERTIA_FROM_FILE)
         #print(self.robotId)
         self.wheel= {'BR':0,'FR':20, 'BL':40, 'FL':60}
         self.sample()
