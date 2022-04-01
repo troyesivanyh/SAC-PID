@@ -47,16 +47,16 @@ class Bullet():
         # init orientation
         cubeStartOrientation = p.getQuaternionFromEuler([0, 0, self.car.init_yaw-math.pi/2])
         self.robotId= p.loadURDF("agent_model/mecanum_simple.urdf", cubeStartPos, cubeStartOrientation,flags=p.URDF_USE_INERTIA_FROM_FILE)
-        #print(self.robotId)
+
         self.wheel= {'BR':0,'FR':20, 'BL':40, 'FL':60}
         self.sample()
 
 
 
-        #print(len(self.targetx_list),len(self.targettheta_list))
+
 
     def reset(self):
-        #print(self.robotId)
+
         self.set_vel()
         cubeStartOrientation = p.getQuaternionFromEuler([0, 0, self.car.init_yaw-math.pi/2])
         p.resetBasePositionAndOrientation(self.robotId,[self.car.init_pos[0],self.car.init_pos[1],0],cubeStartOrientation)
@@ -79,9 +79,9 @@ class Bullet():
 
             p.addUserDebugLine([self.targetx_list[i],self.targety_list[i],0.0],[self.targetx_list[i+1],self.targety_list[i+1],0.0],lineColorRGB=[1, 0, 0], lifeTime=float('inf'), lineWidth=3)
         self.car.goal=[self.targetx_list[-4],self.targety_list[-4]]
-        print('goal',self.car.goal)
-        #print(max(errors))
-        #print(self.car.goal)
+
+
+
 
 
    # set velocity for each wheel
@@ -200,7 +200,7 @@ class PidEnv():
 
         done = 0
         success=False
-        #print(action)
+
 
         self.x_pid.set(action[0], action[1], action[2])
         self.y_pid.set(action[3], action[4], action[5])
@@ -217,11 +217,11 @@ class PidEnv():
         self.bullet.set_vel(y_vel=v,angel_vel=w)
         #time.sleep(self.bullet.sample_T)
         a=time.time()
-        for i in range(50):
+        for k in range(50):
             a=time.time()
 
             p.stepSimulation()
-            print(time.time()-a)
+
         next_position,next_yaw=self.bullet.get_state()
         self.x.append(next_position[0])
         self.y.append(next_position[1])
@@ -243,6 +243,7 @@ class PidEnv():
         #if norm((self.car.goal[0]-next_position[0],self.car.goal[1]-next_position[1]))<=self.car.car_radius or \
                 #error>self.max_error :
         if error>self.max_error or (set_pos[0]==self.car.goal[0] and set_pos[1]==self.car.goal[1]):
+
             done=1
         if norm((self.car.goal[0]-next_position[0],self.car.goal[1]-next_position[1]))<=self.car.car_radius+0.15:
             success=True
